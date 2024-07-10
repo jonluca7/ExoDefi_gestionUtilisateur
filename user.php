@@ -46,6 +46,7 @@ class User {
         return $this->password;
     }
 
+
     public function sayHello(){
     echo 'Bonjour'.' '.$this->firstName.' '.$this->lastName;
     }

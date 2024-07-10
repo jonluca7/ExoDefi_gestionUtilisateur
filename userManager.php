@@ -71,16 +71,19 @@ class UserManager{
         $user= $statement->fetch();
 
         // Il faut vérifier que Fetch n'a pas retourné False avant de vérifier le mot de passe
-
-        if($user !== false && password_verify($password, $user->getPassword())){
+        var_dump($user);
+        if($user !== false && password_verify($password,$user->getPassword())){
 
             // On verifie si le departement de l'utilisateur est dans la liste des départements autorisées
-        
+             
+           
             if(in_array($user->getDepartment(), ['75', '94', '92', '93'])){
                 $user->addRole('ROLE_DELIVERABLE');
-
+   
             }
+
             return $user;
+           
         }
 
        }
