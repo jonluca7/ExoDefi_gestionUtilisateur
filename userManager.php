@@ -72,6 +72,7 @@ class UserManager{
 
         // Il faut vérifier que Fetch n'a pas retourné False avant de vérifier le mot de passe
         var_dump($user);
+        die;
         if($user !== false && password_verify($password,$user->getPassword())){
 
             // On verifie si le departement de l'utilisateur est dans la liste des départements autorisées
