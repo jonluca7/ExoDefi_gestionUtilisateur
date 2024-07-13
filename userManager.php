@@ -65,6 +65,14 @@ class UserManager{
         $statement-> setFetchMode(PDO::FETCH_CLASS, 'User');
         $statement->bindValue(':email', $email);
 
+        try {
+            $statement->execute();
+            }catch (Exception $e) {
+            var_dump($e->getMessage());
+            var_dump($e);
+            die;
+            }
+
         if($statement->execute()){
         // Il y a une contrainte d'unicité sur l'email: Il n'est donc pas besoin de faire une boucle
 
